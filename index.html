@@ -8,6 +8,7 @@
   </head>
   <body>
     <header class="topbar">
+      <div class="brand">CDD Demo</div>
       <div class="brand">Danske Bank · CDD Demo</div>
       <div class="controls">
         <label for="languageSelect" class="sr-only">Language</label>
@@ -48,6 +49,12 @@
             <div class="step" data-step="0">
               <h3 data-i18n="companyInfo"></h3>
               <div class="grid">
+                <label><span data-i18n="companyName"></span><input name="companyName" required maxlength="120" /></label>
+                <label><span data-i18n="cvr"></span><input name="cvr" required pattern="\d{8}" maxlength="8" /></label>
+                <label><span data-i18n="legalForm"></span><select name="legalForm" required><option value=""></option><option>ApS</option><option>A/S</option><option>I/S</option><option>Enkeltmandsvirksomhed</option><option>Other</option></select></label>
+                <label><span data-i18n="industry"></span><input name="industry" required maxlength="80" /></label>
+                <label><span data-i18n="address"></span><input name="address" required maxlength="120" /></label>
+                <label><span data-i18n="country"></span><select name="country" required><option value=""></option><option>Denmark</option><option>Sweden</option><option>Norway</option><option>Germany</option><option>Other</option></select></label>
                 <label>
                   <span data-i18n="companyName"></span>
                   <input name="companyName" required maxlength="120" />
@@ -92,6 +99,10 @@
             <div class="step hidden" data-step="1">
               <h3 data-i18n="purposeTitle"></h3>
               <div class="grid">
+                <label><span data-i18n="purpose"></span><textarea name="purpose" required minlength="30"></textarea></label>
+                <label><span data-i18n="products"></span><textarea name="products" required minlength="10"></textarea></label>
+                <label><span data-i18n="annualTurnover"></span><input name="annualTurnover" type="number" min="1" required /></label>
+                <label><span data-i18n="primaryGeographies"></span><input name="primaryGeographies" required /></label>
                 <label>
                   <span data-i18n="purpose"></span>
                   <textarea name="purpose" required minlength="30"></textarea>
@@ -121,6 +132,9 @@
             <div class="step hidden" data-step="3">
               <h3 data-i18n="managementTitle"></h3>
               <div class="grid">
+                <label><span data-i18n="ceoName"></span><input name="ceoName" required /></label>
+                <label><span data-i18n="boardMembers"></span><textarea name="boardMembers" required minlength="10"></textarea></label>
+                <label><span data-i18n="signatories"></span><textarea name="signatories" required minlength="10"></textarea></label>
                 <label>
                   <span data-i18n="ceoName"></span>
                   <input name="ceoName" required />
@@ -139,6 +153,10 @@
             <div class="step hidden" data-step="4">
               <h3 data-i18n="riskTitle"></h3>
               <div class="grid">
+                <label><span data-i18n="pepQuestion"></span><select name="pep" required><option value=""></option><option value="no">No</option><option value="yes">Yes</option></select></label>
+                <label class="full"><span data-i18n="sanctionsQuestion"></span><select name="sanctions" required><option value=""></option><option value="no">No</option><option value="yes">Yes</option></select></label>
+                <label class="full"><span data-i18n="highRiskCountries"></span><textarea name="highRiskCountries"></textarea></label>
+                <label class="full hidden" id="enhancedDueDiligenceWrap"><span data-i18n="eddReason"></span><textarea name="eddReason" minlength="25"></textarea></label>
                 <label>
                   <span data-i18n="pepQuestion"></span>
                   <select name="pep" required>
@@ -169,6 +187,9 @@
             <div class="step hidden" data-step="5">
               <h3 data-i18n="taxTitle"></h3>
               <div class="grid">
+                <label><span data-i18n="taxResidency"></span><input name="taxResidency" required /></label>
+                <label><span data-i18n="tin"></span><input name="tin" required minlength="6" /></label>
+                <label><span data-i18n="fatca"></span><select name="fatca" required><option value=""></option><option value="no">No</option><option value="yes">Yes</option></select></label>
                 <label>
                   <span data-i18n="taxResidency"></span>
                   <input name="taxResidency" required />
@@ -191,6 +212,9 @@
             <div class="step hidden" data-step="6">
               <h3 data-i18n="documentsTitle"></h3>
               <div class="grid">
+                <label><span data-i18n="registrationDoc"></span><input type="file" name="registrationDoc" required /></label>
+                <label><span data-i18n="ownershipDoc"></span><input type="file" name="ownershipDoc" required /></label>
+                <label><span data-i18n="financialDoc"></span><input type="file" name="financialDoc" required /></label>
                 <label>
                   <span data-i18n="registrationDoc"></span>
                   <input type="file" name="registrationDoc" required />
@@ -209,6 +233,8 @@
             <div class="step hidden" data-step="7">
               <h3 data-i18n="reviewTitle"></h3>
               <div id="reviewSummary"></div>
+              <label class="checkbox"><input type="checkbox" name="declaration" required /> <span data-i18n="declarationText"></span></label>
+              <label class="checkbox"><input type="checkbox" name="consent" required /> <span data-i18n="consentText"></span></label>
               <label class="checkbox">
                 <input type="checkbox" name="declaration" required />
                 <span data-i18n="declarationText"></span>
@@ -231,6 +257,63 @@
 
       <section id="caseHandlerView" class="hidden">
         <div class="card">
+          <div class="queue-toolbar">
+            <label><span data-i18n="roleLabel"></span><select id="roleSelect"><option value="analyst" data-i18n="roleAnalyst"></option><option value="compliance" data-i18n="roleCompliance"></option><option value="manager" data-i18n="roleManager"></option></select></label>
+            <label><span data-i18n="queueLabel"></span><select id="queueFilter"><option value="team" data-i18n="queueTeam"></option><option value="mine" data-i18n="queueMine"></option><option value="overdue" data-i18n="queueOverdue"></option><option value="escalated" data-i18n="queueEscalated"></option></select></label>
+          </div>
+        </div>
+        <div class="card case-layout">
+          <div>
+            <h2 data-i18n="caseTitle"></h2>
+            <p data-i18n="caseSubtitle"></p>
+            <table>
+              <thead>
+                <tr>
+                  <th data-i18n="tableCompany"></th><th data-i18n="tableCvr"></th><th data-i18n="tableDate"></th><th data-i18n="tableRisk"></th><th data-i18n="tableSla"></th><th data-i18n="tableStatus"></th><th data-i18n="tableActions"></th>
+                </tr>
+              </thead>
+              <tbody id="casesTbody"></tbody>
+            </table>
+          </div>
+
+          <aside id="caseWorkbench" class="card soft hidden">
+            <h3 data-i18n="workbenchTitle"></h3>
+            <p id="selectedCaseSummary">-</p>
+            <div id="riskSummary" class="risk-box"></div>
+            <div class="stage-track" id="stageTrack"></div>
+
+            <label><span data-i18n="handlerNotes"></span><textarea id="handlerNotes" minlength="10"></textarea></label>
+            <div class="checklist">
+              <label class="checkbox"><input type="checkbox" id="checkIdentity" /> <span data-i18n="checkIdentity"></span></label>
+              <label class="checkbox"><input type="checkbox" id="checkOwnership" /> <span data-i18n="checkOwnership"></span></label>
+              <label class="checkbox"><input type="checkbox" id="checkRisk" /> <span data-i18n="checkRisk"></span></label>
+              <label class="checkbox"><input type="checkbox" id="checkDocs" /> <span data-i18n="checkDocs"></span></label>
+            </div>
+
+            <div class="rfi-box">
+              <h4 data-i18n="rfiTitle"></h4>
+              <label><span data-i18n="rfiQuestion"></span><textarea id="rfiQuestionText"></textarea></label>
+              <button type="button" class="secondary" id="sendRfiBtn" data-i18n="sendRfi"></button>
+              <label><span data-i18n="rfiResponse"></span><textarea id="rfiResponseText"></textarea></label>
+              <button type="button" class="secondary" id="resolveRfiBtn" data-i18n="resolveRfi"></button>
+            </div>
+
+            <label><span data-i18n="decisionLabel"></span><select id="decisionSelect"><option value=""></option><option value="ready" data-i18n="decisionReady"></option><option value="missing" data-i18n="decisionMissing"></option><option value="escalate" data-i18n="decisionEscalate"></option><option value="approved" data-i18n="decisionApproved"></option><option value="rejected" data-i18n="decisionRejected"></option></select></label>
+
+            <div class="dual-control">
+              <h4 data-i18n="dualControlTitle"></h4>
+              <label><span data-i18n="secondaryReviewer"></span><input id="secondaryReviewer" /></label>
+              <label class="checkbox"><input type="checkbox" id="fourEyesConfirmed" /> <span data-i18n="fourEyesConfirmed"></span></label>
+            </div>
+
+            <div class="actions-row">
+              <button type="button" class="secondary" id="saveCaseWorkBtn" data-i18n="saveCaseWork"></button>
+              <button type="button" class="primary" id="moveNextStageBtn" data-i18n="moveNextStage"></button>
+            </div>
+
+            <h4 data-i18n="auditTitle"></h4>
+            <ul id="auditTrail" class="audit-list"></ul>
+          </aside>
           <h2 data-i18n="caseTitle"></h2>
           <p data-i18n="caseSubtitle"></p>
           <table>
@@ -252,6 +335,10 @@
     <template id="uboTemplate">
       <div class="ubo-entry card soft">
         <div class="grid">
+          <label><span data-i18n="uboName"></span><input name="uboName" required /></label>
+          <label><span data-i18n="uboOwnership"></span><input name="uboOwnership" type="number" min="25" max="100" required /></label>
+          <label><span data-i18n="uboCountry"></span><input name="uboCountry" required /></label>
+          <label><span data-i18n="uboPep"></span><select name="uboPep" required><option value=""></option><option value="no">No</option><option value="yes">Yes</option></select></label>
           <label>
             <span data-i18n="uboName"></span>
             <input name="uboName" required />

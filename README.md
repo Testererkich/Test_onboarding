@@ -9,8 +9,14 @@ A complete demonstration web app for the next step after clicking **"ansøg nu"*
 - Simulated MitID login that pre-fills selected fields.
 - Strict validation with conditional Enhanced Due Diligence requirement.
 - Save-and-resume in browser localStorage.
-- Internal case-handler dashboard with submitted cases and risk/status indicators.
-- Close visual style match inspired by Danske Bank color palette.
+- Expanded internal case-handler workspace with:
+  - role-based permissions (Analyst/Compliance/Manager),
+  - team/my/overdue/escalated queue filters,
+  - SLA stage timer,
+  - RFI loop (request info + resolve),
+  - risk scoring model,
+  - four-eyes control for approve/reject,
+  - audit trail timeline.
 - Demo-only compliance disclaimer.
 
 ## Run locally
