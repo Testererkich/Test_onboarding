@@ -9,6 +9,7 @@
   <body>
     <header class="topbar">
       <div class="brand">CDD Demo</div>
+      <div class="brand">Danske Bank · CDD Demo</div>
       <div class="controls">
         <label for="languageSelect" class="sr-only">Language</label>
         <select id="languageSelect" aria-label="Language selector">
@@ -54,6 +55,44 @@
                 <label><span data-i18n="industry"></span><input name="industry" required maxlength="80" /></label>
                 <label><span data-i18n="address"></span><input name="address" required maxlength="120" /></label>
                 <label><span data-i18n="country"></span><select name="country" required><option value=""></option><option>Denmark</option><option>Sweden</option><option>Norway</option><option>Germany</option><option>Other</option></select></label>
+                <label>
+                  <span data-i18n="companyName"></span>
+                  <input name="companyName" required maxlength="120" />
+                </label>
+                <label>
+                  <span data-i18n="cvr"></span>
+                  <input name="cvr" required pattern="\d{8}" maxlength="8" />
+                </label>
+                <label>
+                  <span data-i18n="legalForm"></span>
+                  <select name="legalForm" required>
+                    <option value=""></option>
+                    <option>ApS</option>
+                    <option>A/S</option>
+                    <option>I/S</option>
+                    <option>Enkeltmandsvirksomhed</option>
+                    <option>Other</option>
+                  </select>
+                </label>
+                <label>
+                  <span data-i18n="industry"></span>
+                  <input name="industry" required maxlength="80" />
+                </label>
+                <label>
+                  <span data-i18n="address"></span>
+                  <input name="address" required maxlength="120" />
+                </label>
+                <label>
+                  <span data-i18n="country"></span>
+                  <select name="country" required>
+                    <option value=""></option>
+                    <option>Denmark</option>
+                    <option>Sweden</option>
+                    <option>Norway</option>
+                    <option>Germany</option>
+                    <option>Other</option>
+                  </select>
+                </label>
               </div>
             </div>
 
@@ -64,6 +103,22 @@
                 <label><span data-i18n="products"></span><textarea name="products" required minlength="10"></textarea></label>
                 <label><span data-i18n="annualTurnover"></span><input name="annualTurnover" type="number" min="1" required /></label>
                 <label><span data-i18n="primaryGeographies"></span><input name="primaryGeographies" required /></label>
+                <label>
+                  <span data-i18n="purpose"></span>
+                  <textarea name="purpose" required minlength="30"></textarea>
+                </label>
+                <label>
+                  <span data-i18n="products"></span>
+                  <textarea name="products" required minlength="10"></textarea>
+                </label>
+                <label>
+                  <span data-i18n="annualTurnover"></span>
+                  <input name="annualTurnover" type="number" min="1" required />
+                </label>
+                <label>
+                  <span data-i18n="primaryGeographies"></span>
+                  <input name="primaryGeographies" required />
+                </label>
               </div>
             </div>
 
@@ -80,6 +135,18 @@
                 <label><span data-i18n="ceoName"></span><input name="ceoName" required /></label>
                 <label><span data-i18n="boardMembers"></span><textarea name="boardMembers" required minlength="10"></textarea></label>
                 <label><span data-i18n="signatories"></span><textarea name="signatories" required minlength="10"></textarea></label>
+                <label>
+                  <span data-i18n="ceoName"></span>
+                  <input name="ceoName" required />
+                </label>
+                <label>
+                  <span data-i18n="boardMembers"></span>
+                  <textarea name="boardMembers" required minlength="10"></textarea>
+                </label>
+                <label>
+                  <span data-i18n="signatories"></span>
+                  <textarea name="signatories" required minlength="10"></textarea>
+                </label>
               </div>
             </div>
 
@@ -90,6 +157,30 @@
                 <label class="full"><span data-i18n="sanctionsQuestion"></span><select name="sanctions" required><option value=""></option><option value="no">No</option><option value="yes">Yes</option></select></label>
                 <label class="full"><span data-i18n="highRiskCountries"></span><textarea name="highRiskCountries"></textarea></label>
                 <label class="full hidden" id="enhancedDueDiligenceWrap"><span data-i18n="eddReason"></span><textarea name="eddReason" minlength="25"></textarea></label>
+                <label>
+                  <span data-i18n="pepQuestion"></span>
+                  <select name="pep" required>
+                    <option value=""></option>
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                </label>
+                <label class="full">
+                  <span data-i18n="sanctionsQuestion"></span>
+                  <select name="sanctions" required>
+                    <option value=""></option>
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                </label>
+                <label class="full">
+                  <span data-i18n="highRiskCountries"></span>
+                  <textarea name="highRiskCountries"></textarea>
+                </label>
+                <label class="full hidden" id="enhancedDueDiligenceWrap">
+                  <span data-i18n="eddReason"></span>
+                  <textarea name="eddReason" minlength="25"></textarea>
+                </label>
               </div>
             </div>
 
@@ -99,6 +190,22 @@
                 <label><span data-i18n="taxResidency"></span><input name="taxResidency" required /></label>
                 <label><span data-i18n="tin"></span><input name="tin" required minlength="6" /></label>
                 <label><span data-i18n="fatca"></span><select name="fatca" required><option value=""></option><option value="no">No</option><option value="yes">Yes</option></select></label>
+                <label>
+                  <span data-i18n="taxResidency"></span>
+                  <input name="taxResidency" required />
+                </label>
+                <label>
+                  <span data-i18n="tin"></span>
+                  <input name="tin" required minlength="6" />
+                </label>
+                <label>
+                  <span data-i18n="fatca"></span>
+                  <select name="fatca" required>
+                    <option value=""></option>
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                </label>
               </div>
             </div>
 
@@ -108,6 +215,18 @@
                 <label><span data-i18n="registrationDoc"></span><input type="file" name="registrationDoc" required /></label>
                 <label><span data-i18n="ownershipDoc"></span><input type="file" name="ownershipDoc" required /></label>
                 <label><span data-i18n="financialDoc"></span><input type="file" name="financialDoc" required /></label>
+                <label>
+                  <span data-i18n="registrationDoc"></span>
+                  <input type="file" name="registrationDoc" required />
+                </label>
+                <label>
+                  <span data-i18n="ownershipDoc"></span>
+                  <input type="file" name="ownershipDoc" required />
+                </label>
+                <label>
+                  <span data-i18n="financialDoc"></span>
+                  <input type="file" name="financialDoc" required />
+                </label>
               </div>
             </div>
 
@@ -116,6 +235,14 @@
               <div id="reviewSummary"></div>
               <label class="checkbox"><input type="checkbox" name="declaration" required /> <span data-i18n="declarationText"></span></label>
               <label class="checkbox"><input type="checkbox" name="consent" required /> <span data-i18n="consentText"></span></label>
+              <label class="checkbox">
+                <input type="checkbox" name="declaration" required />
+                <span data-i18n="declarationText"></span>
+              </label>
+              <label class="checkbox">
+                <input type="checkbox" name="consent" required />
+                <span data-i18n="consentText"></span>
+              </label>
             </div>
 
             <div class="wizard-actions">
@@ -187,6 +314,20 @@
             <h4 data-i18n="auditTitle"></h4>
             <ul id="auditTrail" class="audit-list"></ul>
           </aside>
+          <h2 data-i18n="caseTitle"></h2>
+          <p data-i18n="caseSubtitle"></p>
+          <table>
+            <thead>
+              <tr>
+                <th data-i18n="tableCompany"></th>
+                <th data-i18n="tableCvr"></th>
+                <th data-i18n="tableDate"></th>
+                <th data-i18n="tableRisk"></th>
+                <th data-i18n="tableStatus"></th>
+              </tr>
+            </thead>
+            <tbody id="casesTbody"></tbody>
+          </table>
         </div>
       </section>
     </main>
@@ -198,6 +339,26 @@
           <label><span data-i18n="uboOwnership"></span><input name="uboOwnership" type="number" min="25" max="100" required /></label>
           <label><span data-i18n="uboCountry"></span><input name="uboCountry" required /></label>
           <label><span data-i18n="uboPep"></span><select name="uboPep" required><option value=""></option><option value="no">No</option><option value="yes">Yes</option></select></label>
+          <label>
+            <span data-i18n="uboName"></span>
+            <input name="uboName" required />
+          </label>
+          <label>
+            <span data-i18n="uboOwnership"></span>
+            <input name="uboOwnership" type="number" min="25" max="100" required />
+          </label>
+          <label>
+            <span data-i18n="uboCountry"></span>
+            <input name="uboCountry" required />
+          </label>
+          <label>
+            <span data-i18n="uboPep"></span>
+            <select name="uboPep" required>
+              <option value=""></option>
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </label>
         </div>
         <button type="button" class="link remove-ubo" data-i18n="remove"></button>
       </div>
